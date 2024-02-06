@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JimD</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="static/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </head>
+  <body>
+    <h1>Welcome to JimD!</h1>
+    <div id="test">Here</div>
+    <button hx-get="/test" hx-target="#test">Click</button>
+
+    <form hx-post="/list" hx-trigger="submit" hx-target="#list">
+      <label for="listInput">Enter List:</label>
+      <input type="text" id="listInput" name="listInput" required />
+      <button type="submit">Enter</button>
+
+      <h2>List</h2>
+      <div id="list"></div>
+    </form>
+  </body>
+</html>
