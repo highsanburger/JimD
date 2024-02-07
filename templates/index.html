@@ -8,17 +8,20 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
   <body>
-    <h1>Welcome to JimD!</h1>
-    <div id="test">Here</div>
-    <button hx-get="/test" hx-target="#test">Click</button>
+    <div id="but">
+      <button type="button" hx-get="/addwo" hx-target="#but" hx-push-url="true">
+        Plan Workout
+      </button>
 
-    <form hx-post="/list" hx-trigger="submit" hx-target="#list">
-      <label for="listInput">Enter List:</label>
-      <input type="text" id="listInput" name="listInput" required />
-      <button type="submit">Enter</button>
+      <br />
+      <br />
 
-      <h2>List</h2>
-      <div id="list"></div>
-    </form>
+      <button type="button">Track</button>
+
+      <br />
+      <br />
+
+      <button type="button">File Location</button>
+    </div>
   </body>
 </html>
