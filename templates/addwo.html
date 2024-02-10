@@ -8,6 +8,14 @@
   </head>
   <body>
     <h1>Excercise List</h1>
+    <h1>Workout Exercises</h1>
+    <ul>
+      {{range .}}
+      <li>
+        {{.Name}} - Reps: {{.Reps}} Sets: {{.Sets}} Weight: {{.Weight}} kgs
+      </li>
+      {{end}}
+    </ul>
     <ol id="list"></ol>
 
     <form
@@ -18,6 +26,10 @@
     >
       <label for="exName">Enter Ex:</label>
       <input type="text" name="exName" required />
+      <br />
+
+      <label for="exRep">Weight (kgs) :</label>
+      <input type="number" name="exWeight" required />
       <br />
 
       <label for="exRep">Reps:</label>
