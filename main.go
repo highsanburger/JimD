@@ -15,8 +15,10 @@ func main() {
 	http.HandleFunc("/", h.Index)
 
 	http.HandleFunc("/addwo", h.AddWorkout)
-
 	http.HandleFunc("/addwo/addex", h.AddExercise)
+
+	http.HandleFunc("/settings", h.Settings)
+	http.HandleFunc("/settings/locn", h.FileLocn)
 
 	fmt.Println("Server is listening on :" + g.PORT)
 

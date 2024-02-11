@@ -4,7 +4,8 @@
     <title></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="static/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
   <body>
     <h1>Excercise List</h1>
@@ -20,8 +21,10 @@
 
     <form
       hx-post="/addwo/addex"
+      hx-get="/addwo/addex"
       hx-trigger="submit"
       hx-target="#list"
+      hx-trigger="load"
       hx-swap="beforeend"
     >
       <label for="exName">Enter Ex:</label>

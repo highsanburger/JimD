@@ -10,18 +10,22 @@
   <body>
     <div id="but">
       <button type="button" hx-get="/addwo" hx-target="#but" hx-push-url="true">
-        Plan Workout
+        Workout
       </button>
 
       <br />
       <br />
 
-      <button type="button">Track</button>
-
-      <br />
-      <br />
-
-      <button type="button">File Location</button>
+      <button
+        type="button"
+        hx-get="/settings"
+        hx-target="#but"
+        hx-push-url="true"
+      >
+        Settings
+      </button>
     </div>
+
+    <a href="index.html"> Home </a>
   </body>
 </html>

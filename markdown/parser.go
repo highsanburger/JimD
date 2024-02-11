@@ -10,7 +10,16 @@ import (
 	"time"
 )
 
+func IsExerciseFormat(input string) bool {
+	// Define the regular expression for the generic pattern
+	pattern := regexp.MustCompile(`^[a-zA-Z]+ - \d+ x \d+ of \d+ kgs\.$`)
+
+	// Check if the input string matches the pattern
+	return pattern.MatchString(input)
+}
+
 func ParseExerciseString(input string) (*d.Exercise, error) {
+	fmt.Println("one")
 	// Define the regular expression pattern to extract information
 	pattern := `^(?i)([a-z]+) - (\d+) x (\d+) of (\d+(\.\d+)?) kgs\.$`
 
@@ -29,17 +38,17 @@ func ParseExerciseString(input string) (*d.Exercise, error) {
 	name := matches[1]
 	reps, err := strconv.Atoi(matches[2])
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	sets, err := strconv.Atoi(matches[3])
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	weight, err := strconv.ParseFloat(matches[4], 64)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	// Create and return the Exercise struct
@@ -49,7 +58,7 @@ func ParseExerciseString(input string) (*d.Exercise, error) {
 		Sets:   sets,
 		Weight: weight,
 	}
-
+	fmt.Println("name - ", exercise.Name)
 	return exercise, nil
 }
 

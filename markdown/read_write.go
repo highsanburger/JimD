@@ -38,30 +38,29 @@ func EnterEx(filename string, ex d.Exercise) {
 }
 
 func ReadLinesFromFile(filename string) ([]string, error) {
-	// Open the file
+
+	fmt.Println("three")
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	// Create a scanner to read the file line by line
 	scanner := bufio.NewScanner(file)
 
-	// Initialize an empty slice to store lines
 	var lines []string
 
-	// Read lines and append to the slice
 	for scanner.Scan() {
 		line := scanner.Text()
 		lines = append(lines, line)
 	}
 	lines = lines[1:]
 
-	// Check for scanner errors
 	if err := scanner.Err(); err != nil {
 		return nil, err
 	}
+	fmt.Println(lines)
+	fmt.Println(len(lines))
 
 	return lines, nil
 }
