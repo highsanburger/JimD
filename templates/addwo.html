@@ -1,48 +1,36 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  </head>
-  <body>
-    <h1>Excercise List</h1>
-    <h1>Workout Exercises</h1>
-    <ul>
-      {{range .}}
-      <li>
-        {{.Name}} - Reps: {{.Reps}} Sets: {{.Sets}} Weight: {{.Weight}} kgs
-      </li>
-      {{end}}
-    </ul>
-    <ol id="list"></ol>
+<h1>Excercise List</h1>
+<h1>Workout Exercises</h1>
+<ul>
+  {{range .}}
+  <li>{{.Name}} - Reps: {{.Reps}} Sets: {{.Sets}} Weight: {{.Weight}} kgs</li>
+  {{end}}
+</ul>
+<ol id="list"></ol>
 
-    <form
-      hx-post="/addwo/addex"
-      hx-get="/addwo/addex"
-      hx-trigger="submit"
-      hx-target="#list"
-      hx-trigger="load"
-      hx-swap="beforeend"
-    >
-      <label for="exName">Enter Ex:</label>
-      <input type="text" name="exName" required />
-      <br />
+<form
+  hx-post="/addwo/addex"
+  hx-get="/addwo/addex"
+  hx-trigger="submit"
+  hx-target="#list"
+  hx-trigger="load"
+  hx-swap="beforeend"
+>
+  <label for="exName">Enter Ex:</label>
+  <input type="text" name="exName" required />
+  <br />
 
-      <label for="exRep">Weight (kgs) :</label>
-      <input type="number" name="exWeight" required />
-      <br />
+  <label for="exRep">Weight (kgs) :</label>
+  <input type="number" name="exWeight" required />
+  <br />
 
-      <label for="exRep">Reps:</label>
-      <input type="number" name="exRep" required />
-      <br />
+  <label for="exRep">Reps:</label>
+  <input type="number" name="exRep" required />
+  <br />
 
-      <label for="exSet">Sets:</label>
-      <input type="number" name="exSet" required />
-      <br />
+  <label for="exSet">Sets:</label>
+  <input type="number" name="exSet" required />
+  <br />
 
-      <button type="submit">Add</button>
-    </form>
-  </body>
-</html>
+  <button type="submit">Add</button>
+</form>

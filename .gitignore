@@ -1,0 +1,6 @@
+
+# Ignore temporary files
+/tmp/
+
+# Ignore node_modules
+/node_modules/

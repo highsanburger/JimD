@@ -9,18 +9,21 @@
   <body>
     <h1>Settings :</h1>
 
-    <form hx-post="/settings/locn" hx-trigger="submit" hx-target="#locn">
-      <!-- <label for="file_location">Select File :</label> -->
-      <!-- <input -->
-      <!--   type="file" -->
-      <!--   name="file_location" -->
-      <!--   accept=".txt, .pdf, .docx" -->
-      <!--   required -->
-      <!-- /> -->
-      <label for="file_locn"> Enter File path : </label>
-      <input type="text" name="file_locn" required />
+    <form hx-post="/settings/location" hx-trigger="submit" hx-target="#locn">
+      <label for="file_location">Select File :</label>
+      <input
+        id="file_location"
+        type="file"
+        name="file_location"
+        accept=".txt, .pdf, .docx"
+        required
+      />
       <br />
       <br />
+      <!-- <label for="file_locn"> Enter File path : </label> -->
+      <!-- <input type="text" name="file_locn" required /> -->
+      <!-- <br /> -->
+      <!-- <br /> -->
 
       <button type="submit">Submit</button>
     </form>

@@ -2,6 +2,7 @@ package handler
 
 import (
 	g "JimD/global"
+	"fmt"
 	// t "JimD/timer"
 
 	"html/template"
@@ -19,4 +20,13 @@ func FileLocn(w http.ResponseWriter, r *http.Request) {
 	g.Phile = f
 	tmp := template.Must(template.ParseFiles("./templates/dot.html"))
 	tmp.Execute(w, g.Phile)
+}
+
+func FileLocation(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	f := r.FormValue("file_location")
+	fmt.Println()
+	// g.Phile = f
+	tmp := template.Must(template.ParseFiles("./templates/dot.html"))
+	tmp.Execute(w, "hi")
 }

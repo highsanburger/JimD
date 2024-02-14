@@ -19,6 +19,7 @@ func main() {
 
 	http.HandleFunc("/settings", h.Settings)
 	http.HandleFunc("/settings/locn", h.FileLocn)
+	http.HandleFunc("/settings/location", h.FileLocation)
 
 	fmt.Println("Server is listening on :" + g.PORT)
 
