@@ -1,27 +1,26 @@
 package main
 
 import (
-	g "JimD/global"
-	h "JimD/handler"
+	g "JimD/global" // assuming the correct import path for your global package
 	"fmt"
+	"github.com/a-h/templ"
+	"html/template"
 	"log"
 	"net/http"
 )
 
 func main() {
+	mux := http.NewServeMux()
 
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		tmp := template.Must(template.ParseFiles("index.html"))
+		tmp.Execute(w, nil)
+	})
 
-	http.HandleFunc("/", h.Index)
-
-	http.HandleFunc("/addwo", h.AddWorkout)
-	http.HandleFunc("/addwo/addex", h.AddExercise)
-
-	http.HandleFunc("/settings", h.Settings)
-	http.HandleFunc("/settings/locn", h.FileLocn)
-	http.HandleFunc("/settings/location", h.FileLocation)
+	c := hello("GET GOT")
+	mux.Handle("/t", templ.Handler(c))
 
 	fmt.Println("Server is listening on :" + g.PORT)
 
-	log.Fatal(http.ListenAndServe(":"+g.PORT, nil))
+	log.Fatal(http.ListenAndServe(":"+g.PORT, mux))
 }
