@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <!-- Include your CSS files, like Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
+  </head>
+
+  <body class="bg-gray-100">
+    <a
+      href="/"
+      class="inline-block px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded transition duration-300 ease-in-out"
+      >Back</a
+    >
+    <div class="flex items-center justify-center h-screen">
+      <div class="bg-white p-8 rounded shadow-md w-96">
+        <h1 class="text-2xl font-bold mb-4">Sign Up</h1>
+
+        <!-- Signup form -->
+        <form action="/signup" method="post">
+          <div class="mb-4">
+            <label
+              for="username"
+              class="block text-sm font-medium text-gray-600"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="mt-1 p-2 w-full border rounded"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-600"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="mt-1 p-2 w-full border rounded"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-600"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="mt-1 p-2 w-full border rounded"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="confirm_password"
+              class="block text-sm font-medium text-gray-600"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              class="mt-1 p-2 w-full border rounded"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white p-2 rounded"
+          >
+            Sign Up
+          </button>
+        </form>
+
+        <p class="text-sm mt-4">
+          Already have an account?
+          <a href="/login" class="text-blue-500">Login</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Include your JS files, like htmx and app.js -->
+    <script src="/static/js/htmx.min.js"></script>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

@@ -4,13 +4,29 @@
     <title>JimD</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="style.css" rel="stylesheet" />
-    <!-- <script src="/assets/htmx.min.js"></script> -->
-    <!-- <script src="/assets/htmx.js"></script> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
-  <body>
-    <div id="g">Hi</div>
-    <button hx-get="/t" hx-target="#g">Click</button>
+
+  <body class="bg-gray-100 p-8">
+    <h1 class="text-4xl font-bold mb-4">Welcome to JimD</h1>
+    <p class="mb-4">
+      A lightweight webapp to track your workouts and store them as plain
+      markdown files.
+    </p>
+    <b class="block mb-2">Features :-</b>
+    <ul class="list-disc pl-6 mb-4">
+      <li>Clean & Responsive UI</li>
+      <li>Import / Export .md</li>
+      <li>Science based 😀</li>
+    </ul>
+
+    <div class="mb-2">
+      Existing user? <a href="/login" class="text-blue-500">Login</a>
+    </div>
+    <div>New user? <a href="/signup" class="text-blue-500">Sign Up</a></div>
   </body>
 </html>
