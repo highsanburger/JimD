@@ -11,30 +11,48 @@ import (
 	"time"
 )
 
+func serveHTML(mux *http.ServeMux, path, templateFile string) {
+	mux.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {
+		tmp := template.Must(template.ParseFiles(templateFile))
+		tmp.Execute(w, nil)
+		// fmt.Println(r)
+	})
+}
 func main() {
 
 	PORT := ":6969"
-	mux := http.NewServeMux()
+	m := http.NewServeMux()
 	s := &http.Server{
 		Addr:           PORT,
-		Handler:        mux,
+		Handler:        m,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		tmp := template.Must(template.ParseFiles("index.html"))
-		tmp.Execute(w, nil)
-	})
-	mux.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
-		tmp := template.Must(template.ParseFiles("login.html"))
-		tmp.Execute(w, nil)
-	})
+	serveHTML(m, "/", "templates/index.html")
+	serveHTML(m, "/login", "templates/login.html")
+	serveHTML(m, "/signup", "templates/signup.html")
 
-	mux.HandleFunc("/signup", func(w http.ResponseWriter, r *http.Request) {
-		tmp := template.Must(template.ParseFiles("signup.html"))
-		tmp.Execute(w, nil)
+	m.HandleFunc("/signup-submit", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case "POST":
+			r.ParseForm()
+			fmt.Println(r.Form)
+			fmt.Println(r.Form.Get("email"))
+		default:
+			fmt.Println("Default")
+		}
+	})
+	m.HandleFunc("/login-submit", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case "POST":
+			r.ParseForm()
+			fmt.Println(r.Form)
+			fmt.Println(r.Form.Get("username"))
+		default:
+			fmt.Println("Default")
+		}
 	})
 
 	fmt.Println("Server is listening on " + PORT)

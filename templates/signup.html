@@ -9,6 +9,11 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
     <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
   </head>
 
@@ -23,7 +28,7 @@
         <h1 class="text-2xl font-bold mb-4">Sign Up</h1>
 
         <!-- Signup form -->
-        <form action="/signup" method="post">
+        <form hx-post="/signup-submit" hx-trigger="submit" hx-swap="none">
           <div class="mb-4">
             <label
               for="username"
@@ -94,7 +99,7 @@
     </div>
 
     <!-- Include your JS files, like htmx and app.js -->
-    <script src="/static/js/htmx.min.js"></script>
-    <script src="/static/js/app.js"></script>
+    <!-- <script src="/static/js/htmx.min.js"></script> -->
+    <!-- <script src="/static/js/app.js"></script> -->
   </body>
 </html>
